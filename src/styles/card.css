@@ -1,0 +1,82 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 444px;
+    background-color: #fff;
+    justify-content: center;
+    align-content: flex-start;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12) !important;
+}
+.image-container {
+    display: flex;
+    height: 200px;
+    width: 100%;
+    justify-content: center;
+    background-size: cover;
+    background-image: no-repeat center center fixed;
+    margin-top: 5%;
+}
+
+.image-container img {
+    width: 80%;
+}
+
+.title {
+    padding: 0px 10px 0px 10px;
+    text-align: center;
+}
+
+.button {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: 15%;
+}
+
+.button button {
+    background-color: #CE0202;
+    border-radius: 2px;
+    width: 70%;
+    padding: 10px;
+    color: #eee;
+    font-weight: bold;
+    border: none;
+}
+
+.precio {
+    padding: 5px;
+    color: #CE0202;
+}
+
+.price-without-discount {
+    margin: 6%;
+}
+
+.price-with-discount {
+    margin: 6% 6% 0% 6%;
+}
+
+.precio h5 {
+    font-weight: 500;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.discount-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.discount-price {
+    color: grey;
+    text-decoration:line-through;
+    margin-right: 2%;
+}
+
+.discount {
+    color: green;
+}
