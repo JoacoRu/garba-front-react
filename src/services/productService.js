@@ -1,13 +1,11 @@
 import axios from 'axios';
 import RouteApi from '../helpers/routeApi';
 
-const get = async (id) => {
-    const response = axios.get(`http://${RouteApi}/products/${id}`);
-    return response;
+const get = (id) => {
+    return axios.get(`http://${RouteApi}/products/${id}`);
 };
 const list = () => {
-    const response = axios.get(`http://${RouteApi}/products`);
-    return response;
+    return axios.get(`http://${RouteApi}/products`);
 };
 
 export default {

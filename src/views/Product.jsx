@@ -12,7 +12,6 @@ class Product extends PureComponent {
         this.state = {
             id: this.props.match.params.id,
             error: false,
-            product: null,
             principal: null,
             price: null,
             discount: null,
@@ -20,24 +19,17 @@ class Product extends PureComponent {
             description: null
         }
     }
-    getProduct = async () => {
-        let response;
-        try {
-            response = await productService.get(this.state.id);
-            const res = response.data.response;
+    getProduct = () => {
+        productService.get(this.state.id)
+        .then(product => 
             this.setState({
-                product: res,
-                principal: res.resources.images[0].url,
-                price: res.list_price,
-                discount: res.discount,
-                images: res.resources.images,
-                description: res.description
-            });
-        } catch (err) {
-            console.error('Hubo errores: ' + err);
-            //Redirecciono si hay error
-            this.props.history.push('/error');
-        }
+                principal: product.data.response.resources.images[0].url,
+                price: product.data.response.list_price,
+                discount: product.data.response.discount,
+                images: product.data.response.resources.images,
+                description: product.data.response.description
+        }))
+        .catch(() => this.props.history.push('/error'))
     }
 
     addImgPrincipal = (src) => {
@@ -46,9 +38,8 @@ class Product extends PureComponent {
 
     //Renderea una imagen con borde, si es la imagen principal
     secondaryImage = (src) => {
-        let principal = this.state.principal;
-        let value;
-        principal === src ? value = "image_sec_border" : value = "image_sec_normal";
+        const value = this.state.principal === src ? 
+        'image_sec_border' : 'image_sec_normal';
 
         return (
             <div className={value}>

@@ -19,7 +19,7 @@ const Card = props => {
 
             <div className="button">
                 <button 
-                    onClick={() => props.history.push(`/product/${props.id}`, {id: props.id})}
+                    onClick={ () => props.history.push(`/product/${props.id}`) }
                 >
                     VER MAS
                 </button>
